@@ -116,4 +116,5 @@ To understand the branching and tagging strategy leveraged by this repository, p
 ## Retrain YOLOV5 model for detection on CPU and GPU
 
 To uderstand this flow, please please refer to [this page](https://github.com/SabolSocare/Multi-video-Analytics/tree/main/yolov5%20)
-    
+
+If you want to check Vitis-AI compiling's scipt, check this [repository](https://github.com/SabolSocare/Multi-video-Analytics/tree/main/Model%20Zoo%20Compile)
