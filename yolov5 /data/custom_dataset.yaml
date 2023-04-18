@@ -1,0 +1,8 @@
+
+train: /content/drive/MyDrive/MacDocument/Face Mask Dataset/model_training/train_data/images/train  # train images (relative to 'path') 128 images
+val: /content/drive/MyDrive/MacDocument/Face Mask Dataset/model_training/train_data/images/val  # val images (relative to 'path') 128 images
+
+names:
+  0: mask
+  1: no_mask
+
