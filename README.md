@@ -111,9 +111,9 @@ if you want to compile model Zoo in cross platform please do it with this [Tutor
 
 ## Train Object Classification model using Vitis-AI 
 
-To understand the branching and tagging strategy leveraged by this repository, please refer to [this page](https://github.com/Advance-Innovation-Centre-AIC/EdgeAI/tree/main/Object%20Classification)
+To understand the branching and tagging strategy leveraged by this repository, please refer to [this page](https://github.com/SabolSocare/Multi-video-Analytics/tree/main/Object%20Classification)
 
 ## Retrain YOLOV5 model for detection on CPU and GPU
 
-To uderstand this flow, please please refer to [this page](https://github.com/Advance-Innovation-Centre-AIC/EdgeAI/tree/main/yolov5%20)
+To uderstand this flow, please please refer to [this page](https://github.com/SabolSocare/Multi-video-Analytics/tree/main/yolov5%20)
     
