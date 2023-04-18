@@ -6,7 +6,7 @@ Single stage ML that involve only one ML operation on the input image
 
 This tutorial begins with building a one stream, single stage Machine Learning pipeline using VVAS and then scales up to build four channel Machine learning pipelines that processes 4 streams in parallel.
  <p align="center">
-            <img width="678" height="400" src="https://github.com/Advance-Innovation-Centre-AIC/EdgeAI/blob/main/Img/C07E2640-C8F0-40C9-9C4E-73BB15E313B4_1_105_c.jpeg">
+            <img width="678" height="400" src="https://github.com/SabolSocare/Multi-video-Analytics/blob/main/Img/C07E2640-C8F0-40C9-9C4E-73BB15E313B4_1_105_c.jpeg">
    </p>
     ****By 62050104 Sabol Socare, A student in faculty of Electrical Enginering, major Electronic and Embedded System Engineering at Burapha University****
 
