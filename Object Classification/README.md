@@ -1,4 +1,16 @@
-﻿This tutorial shows you how to compile and run the same identical design and application code on a number of different Xilinx cards. The virtually seamless transition between Edge and Cloud is made possible by the Vitis&trade; AI RunTime (VART) which is common to all target platforms and its unified APIs.
+﻿
+<table class="sphinxhide">
+ <tr>
+   <td align="center"><img src="https://raw.githubusercontent.com/Xilinx/Image-Collateral/main/xilinx-logo.png" width="30%"/><h1>Vitis AI Tutorials</h1>
+  </td>
+ </tr>
+ <tr>
+ <td align="center"><h1>TensorFlow2 and Vitis AI design flow</h1>
+ </td>
+ </tr>
+</table>
+
+This tutorial shows you how to compile and run the same identical design and application code on a number of different Xilinx cards. The virtually seamless transition between Edge and Cloud is made possible by the Vitis&trade; AI RunTime (VART) which is common to all target platforms and its unified APIs.
 
 
 ### Current Status
