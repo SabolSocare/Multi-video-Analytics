@@ -1,32 +1,4 @@
-﻿<!--
-Copyright 2020-2022 Xilinx Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-Author: Mark Harvey, Xilinx Inc
--->
-<table class="sphinxhide">
- <tr>
-   <td align="center"><img src="https://raw.githubusercontent.com/Xilinx/Image-Collateral/main/xilinx-logo.png" width="30%"/><h1>Vitis AI Tutorials</h1>
-  </td>
- </tr>
- <tr>
- <td align="center"><h1>TensorFlow2 and Vitis AI design flow</h1>
- </td>
- </tr>
-</table>
-
-This tutorial shows you how to compile and run the same identical design and application code on a number of different Xilinx cards. The virtually seamless transition between Edge and Cloud is made possible by the Vitis&trade; AI RunTime (VART) which is common to all target platforms and its unified APIs.
+﻿This tutorial shows you how to compile and run the same identical design and application code on a number of different Xilinx cards. The virtually seamless transition between Edge and Cloud is made possible by the Vitis&trade; AI RunTime (VART) which is common to all target platforms and its unified APIs.
 
 
 ### Current Status
@@ -338,34 +310,34 @@ The `target.py` script will do the following:
 + Copy the Python application code to the target folder.
 
 
-### ZCU102
+### ZCU104
 
-The entire `target_zcu102` folder should be copied to the ZCU102. Copy it to the /home/root folder of the flashed SD card, this can be done in one of several ways:
+The entire `target_zcu104` folder should be copied to the ZCU102. Copy it to the /home/root folder of the flashed SD card, this can be done in one of several ways:
 
 1. Direct copy to SD Card:
 
-  + If the host machine has an SD card slot, insert the flashed SD card and when it is recognised you will see two volumes, BOOT and ROOTFS. Navigate into the ROOTFS and then into the /home folder.  Make the ./root folder writeable by issuing the command ``sudo chmod -R 777 root`` and then copy the entire `target_zcu102` folder from the host machine into the /home/root folder of the SD card.
+  + If the host machine has an SD card slot, insert the flashed SD card and when it is recognised you will see two volumes, BOOT and ROOTFS. Navigate into the ROOTFS and then into the /home folder.  Make the ./root folder writeable by issuing the command ``sudo chmod -R 777 root`` and then copy the entire `target_zcu104` folder from the host machine into the /home/root folder of the SD card.
 
   + Unmount both the BOOT and ROOTFS volumes from the host machine and then eject the SD Card from the host machine.
 
 2. With the `scp` command:
 
-  + If the target evaluation board is connected to the same network as the host machine, the `target_zcu102` folder can be copied using scp.
+  + If the target evaluation board is connected to the same network as the host machine, the `target_zcu104` folder can be copied using scp.
 
-  + The command will be something like ``scp -r ./build/target_zcu102 root@192.168.1.227:~/.``  assuming that the target board IP address is 192.168.1.227 - adjust this as appropriate for your system.
+  + The command will be something like ``scp -r ./build/target_zcu104 root@192.168.1.227:~/.``  assuming that the target board IP address is 192.168.1.227 - adjust this as appropriate for your system.
 
   + If the password is asked for, insert 'root'.
 
 
-With the `target_zcu102` folder copied to the SD Card and the evaluation board booted, you can issue the command for launching the application - note that this done on the target evaluation board, not the host machine, so it requires a connection to the board such as a serial connection to the UART or an SSH connection via Ethernet.
+With the `target_zcu104` folder copied to the SD Card and the evaluation board booted, you can issue the command for launching the application - note that this done on the target evaluation board, not the host machine, so it requires a connection to the board such as a serial connection to the UART or an SSH connection via Ethernet.
 
-The application can be started by navigating into the `target_zcu102` folder on the evaluation board and then issuing the command ``python3 app_mt.py``. The application will start and after a few seconds will show the throughput in frames/sec, like this:
+The application can be started by navigating into the `target_zcu104` folder on the evaluation board and then issuing the command ``python3 app_mt.py``. The application will start and after a few seconds will show the throughput in frames/sec, like this:
 
 
 
 ```shell
-root@xilinx-zcu102-2021_1:~# cd target_zcu102/
-root@xilinx-zcu102-2021_1:~/target_zcu102# python3 app_mt.py
+root@xilinx-zcu104-2021_1:~# cd target_zcu104/
+root@xilinx-zcu104-2021_1:~/target_zcu104# python3 app_mt.py
 Command line options:
  --image_dir :  images
  --threads   :  1
@@ -385,7 +357,7 @@ The throughput can be improved by increasing the number of threads with the `--t
 
 
 ```shell
-root@xilinx-zcu102-2021_1:~/target_zcu102# python3 app_mt.py --threads 8
+root@xilinx-zcu104-2021_1:~/target_zcu104# python3 app_mt.py --threads 8
 Command line options:
  --image_dir :  images
  --threads   :  8
@@ -399,71 +371,3 @@ Post-processing 1000 images..
 Correct:960, Wrong:40, Accuracy:0.9600
 ------------------------------------
 ```
-### ZCU104 and VCK190
-
-The procedure is identical to that described above for the ZCU102 board - just use either the `target_zcu104` or `target_vck190` folder instead of the `target_zcu10` folder.
-
-
-### Alveo U50
-
-To prepare the images, xmodel and application code for copying to the selected target, run the following command:
-
-```shell
-(vitis-ai-tensorflow2) Vitis-AI /workspace > python -u target.py -m compiled_u50/customcnn.xmodel -t target_u50 2>&1 | tee target_u50.log
-```
-
-**Note:** U50 should be flashed with the correct deployment shell, which should have been done in the 'Preparing the host machine and target boards' section above.
-
-The following steps should be run from inside the Vitis-AI Docker container:
-
-  + Ensure that Vitis-AI's TensorFlow2 Conda environment is enabled (if not, the run `conda activate vitis-ai-tensorflow2`).
-
-  + Run `source setup.sh DPUCAHX8H` which sets environment variables to point to the correct overlay for the U50. The complete steps to run are as follows:
-
-
-```shell
-conda activate vitis-ai-tensorflow2
-source setup.sh DPUCAHX8H
-cd build/target_u50
-/usr/bin/python3 app_mt.py
-```
-
-The expected console output will be like this:
-
-```shell
-(vitis-ai-tensorflow2) Vitis-AI /workspace/build/target_u50 > /usr/bin/python3 app_mt.py
-Command line options:
- --image_dir :  images
- --threads   :  1
- --model     :  customcnn.xmodel
-------------------------------------
-Pre-processing 1000 images...
-Starting 1 threads...
-------------------------------------
-Throughput=1322.94 fps, total frames = 1000, time=0.7559 seconds
-Post-processing 1000 images..
-Correct:960, Wrong:40, Accuracy:0.9600
-------------------------------------
-```
-
-As with the ZCU102, the performance can be increased by using more threads:
-
-
-```shell
-(vitis-ai-tensorflow2) Vitis-AI /workspace/build/target_u50 > /usr/bin/python3 app_mt.py -t 6
-Command line options:
- --image_dir :  images
- --threads   :  6
- --model     :  customcnn.xmodel
-------------------------------------
-Pre-processing 1000 images...
-Starting 6 threads...
-------------------------------------
-Throughput=2442.85 fps, total frames = 1000, time=0.4094 seconds
-Post-processing 1000 images..
-Correct:960, Wrong:40, Accuracy:0.9600
-------------------------------------
-```
-
-</hr>
-<p class="sphinxhide" align="center"><sup>Copyright&copy; 2020-2022 Xilinx</sup></p>
