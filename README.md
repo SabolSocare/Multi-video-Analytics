@@ -8,7 +8,7 @@ This tutorial begins with building a one stream, single stage Machine Learning p
  <p align="center">
             <img width="678" height="400" src="https://github.com/SabolSocare/Multi-video-Analytics/blob/main/Img/C07E2640-C8F0-40C9-9C4E-73BB15E313B4_1_105_c.jpeg">
    </p>
-        ****By 62050104 Sabol Socare, A student in faculty of Electrical Enginering, major Electronic and Embedded System Engineering at Burapha University****
+        **** By 62050104 Sabol Socare, A student in faculty of Electrical Enginering, major Electronic and Embedded System Engineering at Burapha University****
 
 #### My Document -->   https://www.dropbox.com/scl/fi/84liong8mjdaan9gxdj71/Technical-Report-A.paper?dl=0&rlkey=y9gc3x98xrl4ce07y51ol3pg7
 #### Senior project slide --> https://drive.google.com/file/d/1WQmp4HyhDJ1cY6fpo6TwDrnIv_62bGEN/view?usp=share_link
